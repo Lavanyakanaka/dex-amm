@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: dex-amm-app
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/artifacts
+      - /app/cache
+    command: npm run test
+    environment:
+      - NODE_ENV=test
